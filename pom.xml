@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>kellyennick.be</groupId>
+    <artifactId>webcomponenten</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <finalName>Webcomponenten</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.6.9</version>
+                <configuration>
+                    <container>
+                        <containerId>tomee7x</containerId>
+                        <type>installed</type>
+                        <home>/usr/local/Cellar/tomee-plus/1.7.4/libexec/</home>
+                    </container>
+                    <configuration>
+                        <type>existing</type>
+                        <home>/usr/local/Cellar/tomee-plus/1.7.4/libexec</home>
+                    </configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <!--
+                This dependency allows the use of all the Java EE additions to Java SE.
+                e.g. servlets,
+            -->
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope> <!-- The 'provided' here stands for the fact that this dependency is solely for compiling, it mustn't be added to the WAR file. TomEE in this case has this API loaded in Memory. -->
+        </dependency>
+        <dependency>
+            <!--
+                This dependency allows the use of all the MySQL packages and the use with MySQL Databases.
+                Small note: The driver to connect through JDBC will still need to be initialized for web apps!
+            -->
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.46</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>
+            servlets.HelloWorldServlet
+        </servlet-class>
+        <init-param>
+            <param-name>text</param-name>
+            <param-value>Hello Mars</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>GreetingServlet</servlet-name>
+        <servlet-class>
+            servlets.GreetingServlet
+        </servlet-class>
+        <init-param>
+            <param-name>greeting</param-name>
+            <param-value>Welkom op onze website</param-value>
+        </init-param>
+    </servlet>
+
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
+</web-app>
